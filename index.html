@@ -1,0 +1,1125 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teologia Gratis - Homeletika, Hermeneutika & Pujian</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1a1a1a;
+            --secondary: #f5f5f0;
+            --accent: #8b7355;
+            --text: #2c2c2c;
+            --text-light: #666;
+            --white: #ffffff;
+            --border: #e0e0e0;
+            --gold: #d4af37;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text);
+            line-height: 1.7;
+            background-color: var(--white);
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 600;
+            line-height: 1.3;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+            padding: 1.2rem 5%;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--primary);
+            text-decoration: none;
+            letter-spacing: -0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text);
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--accent);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 80px;
+            padding: 8rem 5% 6rem;
+            text-align: center;
+            background: linear-gradient(to bottom, var(--secondary) 0%, var(--white) 100%);
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+            font-style: italic;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto 3rem;
+            font-weight: 300;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: var(--primary);
+            color: var(--white);
+            text-decoration: none;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            transition: all 0.3s;
+            border: 2px solid var(--primary);
+        }
+
+        .cta-button:hover {
+            background: transparent;
+            color: var(--primary);
+        }
+
+        /* Section Styles */
+        section {
+            padding: 6rem 5%;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+            text-align: center;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-light);
+            margin-bottom: 4rem;
+            font-size: 1.1rem;
+        }
+
+        /* Content Blocks */
+        .content-block {
+            margin-bottom: 4rem;
+            padding-bottom: 4rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .content-block:last-child {
+            border-bottom: none;
+        }
+
+        .content-block h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .content-block h3 span {
+            color: var(--accent);
+            font-size: 1.2rem;
+            font-weight: 400;
+        }
+
+        .content-block h4 {
+            font-size: 1.3rem;
+            margin: 2rem 0 1rem;
+            color: var(--primary);
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+        }
+
+        .content-block p {
+            margin-bottom: 1rem;
+            text-align: justify;
+        }
+
+        .content-block ul {
+            margin-left: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .content-block li {
+            margin-bottom: 0.8rem;
+            color: var(--text);
+        }
+
+        .highlight-box {
+            background: var(--secondary);
+            border-left: 3px solid var(--accent);
+            padding: 1.5rem 2rem;
+            margin: 2rem 0;
+            font-style: italic;
+            color: var(--text);
+        }
+
+        .warning-box {
+            background: #fff8e1;
+            border-left: 3px solid var(--gold);
+            padding: 1.5rem 2rem;
+            margin: 2rem 0;
+        }
+
+        .theology-box {
+            background: #f0f4f8;
+            border-left: 3px solid #2c5282;
+            padding: 1.5rem 2rem;
+            margin: 2rem 0;
+        }
+
+        /* Cards Grid */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .card {
+            border: 1px solid var(--border);
+            padding: 2.5rem;
+            transition: all 0.3s;
+            background: var(--white);
+        }
+
+        .card:hover {
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            transform: translateY(-5px);
+        }
+
+        .card-icon {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--accent);
+        }
+
+        .card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .card p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            line-height: 1.8;
+        }
+
+        /* Framework */
+        .framework {
+            background: var(--secondary);
+            padding: 2.5rem;
+            margin: 2rem 0;
+            border-radius: 2px;
+        }
+
+        .framework h4 {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 0.5rem;
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        .framework-step {
+            margin-bottom: 1.5rem;
+            padding-left: 1.5rem;
+            border-left: 2px solid var(--accent);
+        }
+
+        .framework-step h5 {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .framework-step p {
+            color: var(--text);
+            font-size: 0.95rem;
+        }
+
+        /* Example Sermon */
+        .example-box {
+            background: var(--white);
+            border: 1px solid var(--border);
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+
+        .example-header {
+            background: var(--primary);
+            color: var(--white);
+            padding: 1rem 2rem;
+            margin: -2rem -2rem 2rem -2rem;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.2rem;
+        }
+
+        .bible-verse {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+            color: var(--accent);
+            margin: 1rem 0;
+            padding: 1rem;
+            background: rgba(139, 115, 85, 0.1);
+            border-radius: 2px;
+            font-style: italic;
+        }
+
+        .sermon-point {
+            margin: 1.5rem 0;
+            padding: 1.5rem;
+            background: var(--secondary);
+            border-left: 3px solid var(--primary);
+        }
+
+        .sermon-point h5 {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+
+        /* Worship Section Special */
+        .worship-hero {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d3748 100%);
+            color: var(--white);
+            padding: 6rem 5%;
+            text-align: center;
+        }
+
+        .worship-hero h2 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--gold);
+        }
+
+        .worship-hero p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .priesthood-box {
+            background: linear-gradient(to right, #f7f1e3, #f5f5f0);
+            border: 1px solid var(--gold);
+            padding: 2rem;
+            margin: 2rem 0;
+            position: relative;
+        }
+
+        .priesthood-box::before {
+            content: "⛪";
+            position: absolute;
+            top: -15px;
+            left: 2rem;
+            background: var(--white);
+            padding: 0 1rem;
+            font-size: 1.5rem;
+        }
+
+        .priesthood-box h4 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.4rem;
+        }
+
+        .checklist {
+            list-style: none;
+            margin-left: 0;
+        }
+
+        .checklist li {
+            padding-left: 2rem;
+            position: relative;
+            margin-bottom: 1rem;
+        }
+
+        .checklist li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary);
+            color: var(--white);
+            text-align: center;
+            padding: 3rem 5%;
+            margin-top: 4rem;
+        }
+
+        footer p {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            font-weight: 300;
+        }
+
+        footer .copyright {
+            margin-top: 1rem;
+            font-size: 0.85rem;
+            opacity: 0.6;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero h1, .worship-hero h2 {
+                font-size: 2rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .cards-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        @media print {
+            nav, footer {
+                display: none;
+            }
+            
+            .hero {
+                margin-top: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="logo">Teologia Gratis</a>
+            <ul class="nav-links">
+                <li><a href="#homeletika">Homeletika</a></li>
+                <li><a href="#hermeneutika">Hermeneutika</a></li>
+                <li><a href="#pujian">Pujian</a></li>
+                <li><a href="#contoh">Contoh</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Teologia untuk Semua</h1>
+        <p>Belajar berkhotbah dengan baik, menafsir Alkitab dengan benar, dan memimpin pujian dengan hati yang menyembah. Materi lengkap, gratis, dan praktis untuk pelayanan Anda.</p>
+        <a href="#homeletika" class="cta-button">Mulai Belajar</a>
+    </section>
+
+    <!-- HOMELETIKA SECTION -->
+    <section id="homeletika">
+        <h2 class="section-title">Homeletika</h2>
+        <p class="section-subtitle">Ilmu dan Seni Berkhotbah yang Berkuasa dan Berkesan</p>
+
+        <div class="content-block">
+            <h3><span>I.</span> Pengertian dan Fondasi Teologis</h3>
+            <p><strong>Homeletika</strong> berasal dari bahasa Yunani <em>homilia</em> (ὁμιλία), yang berarti "percakapan", "komunikasi", atau "pertemuan." Dalam konteks pelayanan, homeletika adalah ilmu dan seni menyusun serta menyampaikan khotbah atau pengajaran Alkitab yang efektif, dengan tujuan menyampaikan kebenaran Firman Tuhan secara jelas, relevan, dan transformatif.</p>
+            
+            <p>Berkhotbah bukan sekadar transfer informasi, melainkan <strong>proklamasi Firman hidup</strong> yang diilhami Roh Kudus. Khotbah yang otentik adalah pertemuan antara teks kekal (Alkitab) dan konteks kekinian (jemaat), dipertemukan oleh penceramah yang telah diubahkan oleh teks tersebut.</p>
+
+            <div class="highlight-box">
+                "Khotbah yang baik bukanlah yang membuat pendengar terkesan dengan penceramah, tetapi yang membuat mereka terkesan dengan Kristus. Bukan yang mengedukasi saja, tetapi yang mengubahkan—membawa pendengar dari 'tahu' menjadi 'lakukan'."
+            </div>
+
+            <h4>Paradigma Berkhotbah yang Biblikal</h4>
+            <p>Alkitab memberikan model berkhotbah yang beragam: Nabi-nabi (Yesaya, Yeremia), Rasul (Petrus, Paulus), dan Yesus sendiri sebagai khotib utama. Ciri khas khotbah Yesus:</p>
+            <ul>
+                <li><strong>Berbasis Teks:</strong> Selalu merujuk pada Kitab Suci (Matius 4:4, 7, 10)</li>
+                <li><strong>Kontekstual:</strong> Menggunakan ilustrasi dari kehidupan sehari-hari (bandulan, benih, domba)</li>
+                <li><strong>Konfrontatif namun Kasih:</strong> Menantang tanpa menghakimi, mengasihi tanpa mengkompromikan</li>
+                <li><strong>Kristosentris:</strong> Selalu menunjuk kepada Diri-Nya sebagai penggenapan Firman (Lukas 24:27)</li>
+            </ul>
+        </div>
+
+        <div class="content-block">
+            <h3><span>II.</span> Prinsip-prinsip Fundamental</h3>
+            
+            <h4>1. Ekspositori (Text-Driven)</h4>
+            <p>Khotbah ekspositori adalah khotbah yang membiarkan teks berbicara. Poin-poin utama khotbah harus merupakan poin-poin utama teks, bukan ide penceramah yang kemudian mencari ayat pendukung. Ini berbeda dengan khotbah tematik yang berangkat dari topik kemudian mencari ayat-ayat yang mendukung.</p>
+            
+            <div class="theology-box">
+                <strong>Perbedaan Kritis:</strong><br>
+                • <em>Topikal:</em> "Saya ingin berbicara tentang keuangan, lalu mencari ayat-ayat tentang uang."<br>
+                • <em>Ekspositori:</em> "Saya mempelajari Matius 6:19-34, dan teks ini mengajarkan saya tentang kekhawatiran dan prioritas kerajaan."
+            </div>
+
+            <h4>2. Kontekstual (Contextual)</h4>
+            <p>Kebenaran Firman adalah kekal, tetapi aplikasinya kontekstual. Seorang penceramah harus memahami:</p>
+            <ul>
+                <li><strong>Konteks Historis:</strong> Situasi waktu penulisan, penulis asli, dan penerima asli</li>
+                <li><strong>Konteks Literer:</strong> Genre teks (sejarah, puisi, parabel, epistel, apokaliptik)</li>
+                <li><strong>Konteks Jemaat:</strong> Demografi, tantangan hidup, tingkat pemahaman teologis, dan kebutuhan spiritual jemaat saat ini</li>
+            </ul>
+
+            <h4>3. Kristosentris (Christ-Centered)</h4>
+            <p>Setiap teks Alkitab, baik Perjanjian Lama maupun Baru, pada akhirnya bersaksi tentang Kristus (Yohanes 5:39). Ini bukan berarti setiap ayat secara eksplisit menyebut Yesus, tetapi setiap ayat berfungsi dalam narasi besar keselamatan yang berpusat pada Kristus.</p>
+
+            <h4>4. Aplikatif (Practical)</h4>
+            <p>Khotbah yang baik selalu bertanya: "Jadi, bagaimana seharusnya kita hidup?" (Yakobus 1:22). Aplikasi harus spesifik, terukur, dan realistis. Hindari aplikasi yang terlalu umum seperti "Marilah kita semakin taat" tanpa menjelaskan bagaimana bentuk ketahatan itu dalam konteks konkret.</p>
+
+            <h4>5. Klimaks (Climactic)</h4>
+            <p>Khotbah harus memiliki titik puncak (climax) di mana kebenaran utama diungkapkan dengan paling kuat. Ini biasanya terjadi di bagian tengah atau menjelang akhir isi khotbah, di mana penceramah mengajak pendengar membuat keputusan atau komitmen.</p>
+        </div>
+
+        <div class="content-block">
+            <h3><span>III.</span> Proses Penyusunan Khotbah (Metode 5H)</h3>
+            
+            <div class="framework">
+                <h4>Tahapan Persiapan yang Komprehensif</h4>
+                
+                <div class="framework-step">
+                    <h5>1. Hermeneutika (Penafsiran)</h5>
+                    <p><strong>Tujuan:</strong> Menemukan makna yang dimaksud penulis ilahi (Roh Kudus) dan penulis manusia.<br>
+                    <strong>Praktik:</strong> Baca teks berulang kali dalam berbagai terjemahan. Catat kata-kata kunci, struktur, dan pola. Gunakan alat bantu bahasa asli (interlinear) jika memungkinkan. Tanyakan: "Apa yang dikatakan teks?" sebelum "Apa yang saya ingin katakan?"</p>
+                </div>
+                
+                <div class="framework-step">
+                    <h5>2. Historika (Penelitian)</h5>
+                    <p><strong>Tujuan:</strong> Memahami latar belakang historis, budaya, dan situasi penulisan.<br>
+                    <strong>Praktik:</strong> Pelajari sejarah zaman tersebut, adat-istiadat, geografi, dan situasi politik. Misalnya, memahami sistem gembalaan di Timur Dekat kuno akan memperkaya penafsiran Mazmur 23.</p>
+                </div>
+                
+                <div class="framework-step">
+                    <h5>3. Harmonia (Korelasional)</h5>
+                    <p><strong>Tujuan:</strong> Menempatkan teks dalam keseluruhan teks Alkitab (analogia scriptura).<br>
+                    <strong>Praktik:</strong> Cari cross-reference (ayat-ayat lain yang berbicara tentang tema serupa). Pastikan penafsiran Anda tidak bertentangan dengan ajaran Alkitab secara keseluruhan. Hubungkan dengan pusat Alkitab: Kristus.</p>
+                </div>
+                
+                <div class="framework-step">
+                    <h5>4. Homiletika (Strukturisasi)</h5>
+                    <p><strong>Tujuan:</strong> Merancang struktur khotbah yang logis dan komunikatif.<br>
+                    <strong>Praktik:</strong> Susun: Pendahuluan (perhatian & kebutuhan), Proposisi (kalimat tesis), Isi (2-4 poin utama dengan penjelasan, ilustrasi, aplikasi), dan Penutup (ringkasan, tantangan, doa).</p>
+                </div>
+                
+                <div class="framework-step">
+                    <h5>5. Hidup (Aplikasi)</h5>
+                    <p><strong>Tujuan:</strong> Menerjemahkan kebenaran abadi ke dalam situasi kekinian.<br>
+                    <strong>Praktik:</strong> Tanyakan: Bagaimana teks ini mengubah cara berpikir (mind), perasaan (heart), dan tindakan (will) jemaat? Buat aplikasi yang spesifik untuk berbagai kelompok: anak muda, orang tua, pekerja, pelajar, dll.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-block">
+            <h3><span>IV.</span> Struktur Khotbah yang Efektif</h3>
+            
+            <h4>A. Pendahuluan (10% waktu)</h4>
+            <p>Fungsi: Mendapatkan perhatian, membangun koneksi, memperkenalkan kebutuhan/topik.</p>
+            <ul>
+                <li><strong>Hook:</strong> Cerita, pertanyaan provokatif, fakta mengejutkan, atau ilustrasi yang relevan</li>
+                <li><strong>Book:</strong> Perkenalan teks Alkitab yang akan dibahas</li>
+                <li><strong>Look:</strong> Gambaran singkat apa yang akan dipelajari (preview)</li>
+            </ul>
+
+            <h4>B. Proposisi (Kalimat Tesis)</h4>
+            <p>Kalimat tunggal yang merangkum pesan utama khotbah. Harus:</p>
+            <ul>
+                <li>Mengandung subjek (apa yang dibicarakan) dan komplemen (apa yang dikatakan tentang subjek)</li>
+                <li>Dapat diingat dan diulang</li>
+                <li>Mengandung elemen aplikatif</li>
+            </ul>
+            <div class="highlight-box">
+                Contoh: "Ketika kita memahami kedalaman kasih karunia Allah, kita akan dilepaskan dari perbudakan perfeksionisme dan hidup dalam kebebasan mengasihi."
+            </div>
+
+            <h4>C. Isi (75% waktu)</h4>
+            <p>Setiap poin utama harus mengikuti pola <strong>PIA</strong>:</p>
+            <ul>
+                <li><strong>P</strong>enjelasan (Explanation): Jelaskan makna teks secara eksegetis</li>
+                <li><strong>I</strong>lustrasi (Illustration): Cerita, analogi, atau contoh konkret yang menerangkan konsep</li>
+                <li><strong>A</strong>plikasi (Application): Bagaimana ini berlaku dalam kehidupan?</li>
+            </ul>
+
+            <h4>D. Penutup (15% waktu)</h4>
+            <ul>
+                <li><strong>Ringkasan:</strong> Ulangi proposisi dan poin-poin kunci</li>
+                <li><strong>Tantangan:</strong> Panggilan untuk bertindak atau berubah</li>
+                <li><strong>Visualisasi:</strong> Bantu jemaat membayangkan hidup dalam ketaatan</li>
+                <li><strong>Doa:</strong> Serahkan kepada kuasa Roh Kudus</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- HERMENEUTIKA SECTION -->
+    <section id="hermeneutika" style="background: var(--secondary);">
+        <h2 class="section-title">Hermeneutika</h2>
+        <p class="section-subtitle">Ilmu Menafsir Alkitab secara Valid dan Komprehensif</p>
+
+        <div class="content-block">
+            <h3><span>I.</span> Pengertian dan Dasar Teologis</h3>
+            <p><strong>Hermeneutika</strong> (dari Yunani <em>hermēneuō</em>, "menafsirkan") adalah ilmu, seni, dan metodologi penafsiran teks—khususnya teks-teks yang dianggap sakral. Dalam konteks Kristen, hermeneutika Alkitab adalah upaya memahami Firman Allah yang diilhamkan, dengan tujuan menemukan makna yang dimaksudkan oleh Roh Kudus (penulis ilahi) melalui penulis manusia dalam konteks historis mereka, serta menerapkannya dalam konteks kita saat ini.</p>
+
+            <div class="theology-box">
+                <strong>Dual Authorship (Keauthrian Ganda):</strong><br>
+                Alkitab memiliki dua penulis: manusia dan Allah (2 Petrus 1:20-21). Ini berarti:
+                <ul style="margin-top: 0.5rem;">
+                    <li>Alkitab memiliki karakteristik manusiawi (gaya bahasa, kepribadian penulis, konteks historis)</li>
+                    <li>Alkitab memiliki otoritas ilahi (tanpa error, autoritatif, sufisien)</li>
+                    <li>Tugas penafsir: menghormati kedua dimensi ini tanpa mengorbankan salah satunya</li>
+                </ul>
+            </div>
+
+            <h4>Mengapa Hermeneutika Penting?</h4>
+            <p>Tanpa metode yang benar, kita bisa jatuh ke dalam:</p>
+            <ul>
+                <li><strong>Eisegesis:</strong> Membawa makna dari luar masuk ke dalam teks (memaksakan agenda pribadi)</li>
+                <li><strong>Subjektivitas:</strong> "Bagi saya, ayat ini berarti..." tanpa dasar objektif</li>
+                <li><strong>Proof-texting:</strong> Mengambil ayat terlepas dari konteks untuk mendukung doktrin tertentu</li>
+                <li><strong>Allegorisasi liar:</strong> Mencari makna "rahasia" yang tidak didukung teks</li>
+            </ul>
+        </div>
+
+        <div class="content-block">
+            <h3><span>II.</span> Metode Induktif: Tiga Langkah Fundamental</h3>
+            
+            <div class="cards-grid">
+                <div class="card">
+                    <div class="card-icon">👁️</div>
+                    <h3>1. Observasi</h3>
+                    <p><strong>"Apa yang dikatakan teks?"</strong></p>
+                    <p style="margin-top: 1rem;">Baca teks secara repetitif dan pasif. Catat:</p>
+                    <ul style="margin-top: 0.5rem; font-size: 0.9rem;">
+                        <li>Kata-kata yang diulang atau ditekankan</li>
+                        <li>Kontras dan perbandingan</li>
+                        <li>Pertanyaan yang muncul dalam teks</li>
+                        <li>Struktur gramatikal</li>
+                        <li>Hubungan antar ayat (konjungsi: karena, tetapi, maka, jika)</li>
+                    </ul>
+                    <p style="margin-top: 1rem; font-style: italic; color: var(--accent);">Jangan menafsir dulu. Amati dahulu. Biarkan teks berbicara.</p>
+                </div>
+                
+                <div class="card">
+                    <div class="card-icon">🔍</div>
+                    <h3>2. Interpretasi</h3>
+                    <p><strong>"Apa artinya?"</strong></p>
+                    <p style="margin-top: 1rem;">Tanyakan:</p>
+                    <ul style="margin-top: 0.5rem; font-size: 0.9rem;">
+                        <li>Apa konteks langsung (ayat sebelum/sesudah)?</li>
+                        <li>Apa konteks kitab keseluruhan?</li>
+                        <li>Apa makna kata-kata kunci dalam bahasa asli?</li>
+                        <li>Apa genre teks ini (naratif, puisi, hukum, parabel)?</li>
+                        <li>Bagaimana teks lain (Perjanjian Baru/Lama) menafsirkan ini?</li>
+                    </ul>
+                    <p style="margin-top: 1rem; font-style: italic; color: var(--accent);">Satu ayat tidak pernah bertentangan dengan keseluruhan Alkitab.</p>
+                </div>
+                
+                <div class="card">
+                    <div class="card-icon">⚡</div>
+                    <h3>3. Aplikasi</h3>
+                    <p><strong>"Bagaimana saya harus merespons?"</strong></p>
+                    <p style="margin-top: 1rem;">Aplikasi yang baik harus:</p>
+                    <ul style="margin-top: 0.5rem; font-size: 0.9rem;">
+                        <li><strong>Personal:</strong> "Saya" bukan "mereka"</li>
+                        <li><strong>Praktis:</strong> Dapat dilakukan, bukan abstrak</li>
+                        <li><strong>Spesifik:</strong> Kapan, di mana, bagaimana?</li>
+                        <li><strong>Terukur:</strong> Dapat dievaluasi</li>
+                        <li><strong>Berbagi:</strong> Bagaimana saya mengajarkan ini ke orang lain?</li>
+                    </ul>
+                    <p style="margin-top: 1rem; font-style: italic; color: var(--accent);">Tujuan bukan informasi, tetapi transformasi.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-block">
+            <h3><span>III.</span> Aturan Emas Hermeneutika</h3>
+            
+            <h4>1. Interpretasi Literal (Gramatikal-Historikal)</h4>
+            <p>Terima arti harfiah kecuali ada indikasi kuat untuk interpretasi kiasan. Jika teks berbicara tentang sejarah, anggap sebagai sejarah. Jika puisi, baca sebagai puisi. Jika parabel, cari pelajaran moral/teologis. Jika apokaliptik, pahami simbolisme dalam konteksnya.</p>
+
+            <div class="warning-box">
+                <strong>Kesalahan Umum:</strong> Mengallegorisasi teks historis (misal: mengatakan kisah Yunus bukan tentang ikan besar yang benar-benar menelan, melainkan "hanya" simbol kematian dan kebangkitan). Allegori hanya valid jika teks sendiri memberikan indikasi (misal: Galatia 4:24 tentang Hagar dan Sara).
+            </div>
+
+            <h4>2. Interpretasi Kontekstual</h4>
+            <p>Ayat tanpa konteks adalah preteks. Selalu lihat:</p>
+            <ul>
+                <li><strong>Konteks Langsung:</strong> Ayat-ayat sebelum dan sesudah (co-text)</li>
+                <li><strong>Konteks Kitab:</strong> Tema dan tujuan keseluruhan kitab</li>
+                <li><strong>Konteks Kanonikal:</strong> Hubungan dengan seluruh Alkitab</li>
+                <li><strong>Konteks Historis:</strong> Situasi penulisan dan penerima asli</li>
+            </ul>
+
+            <h4>3. Analogia Scriptura (Keselarasan Alkitab)</h4>
+            <p>Alkitab adalah satu kesatuan yang koheren. Jika penafsiran Anda membuat satu bagian Alkitab bertentangan dengan bagian lain, penafsiran Anda salah. Alkitab menafsirkan Alkitab.</p>
+
+            <h4>4. Analogia Fidei (Keselarasan Iman)</h4>
+            <p>Penafsiran harus sesuai dengan ajaran ortodoks kekristenan yang telah diakui oleh gereja sepanjang sejarah (kredo rasuli, nicea, dll).</p>
+
+            <h4>5. Kristosentris (Christological Center)</h4>
+            <p>Yesus menyatakan bahwa seluruh Kitab Suci bersaksi tentang Dia (Yohanes 5:39; Lukas 24:27). Penafsiran yang mengabaikan pusat ini adalah penafsiran yang tidak lengkap.
+        </div>
+
+        <div class="content-block">
+            <h3><span>IV.</span> Menafsirkan Berbagai Genre Alkitab</h3>
+            
+            <h4>A. Naratif (Kisah/Kisah Para Rasul)</h4>
+            <p>Prinsip: <em>Deskriptif bukan preskriptif.</em> Tidak semua yang dilakukan tokoh Alkitab adalah teladan (contoh: Daud dan Batsyeba). Cari prinsip teologis di balik narasi, bukan meniru detail historis.</p>
+
+            <h4>B. Puisi (Mazmur, Kidung Agung, Amsal)</h4>
+            <p>Prinsip: <em>Puisi menggunakan figurative language.</em> "Tuhan adalah batu karang" (Mazmur 18:2) adalah metafora, bukan geologi. Cari gambaran emosional dan relasional, bukan fakta ilmiah literal.</p>
+
+            <h4>C. Hukum (Imamat, Ulangan)</h4>
+            <p>Prinsip: <em>Distinguish moral, ceremonial, and civil law.</em> Hukum moral (Sepuluh Perintah) tetap berlaku. Hukum ceremonial (kurban, imam) digenapi di Kristus. Hukum civil (hukum Israel kuno) mengandung prinsip keadilan yang relevan namun tidak diterapkan secara literal.</p>
+
+            <h4>D. Parabel (Matius 13, Lukas 15)</h4>
+            <p>Prinsip: <em>Satu poin utama.</em> Jangan allegorisasi setiap detail (misal: samaritan yang baik bukan tentang "membayar dua dinar = persepuluhan"). Cari poin tunggal yang Yesus ingin sampaikan.</p>
+
+            <h4>E. Epistel (Surat-surat Paulus, Petrus, Yohanes)</h4>
+            <p>Prinsip: <em>Struktur logis dan argumentatif.</em> Perhatikan alur argumen (indikatif sebelum imperatif: "karena kamu adalah..." sebelum "maka lakukanlah...").</p>
+
+            <h4>F. Apokaliptik (Wahyu, Daniel 7-12)</h4>
+            <p>Prinsip: <em>Simbolisme yang sengaja.</em> Angka-angka (7, 12, 1000) seringkali simbolik. Fokus pada pesan teologis (kemenangan Kristus, penghakiman, pembaruan) bukan membuat timeline spesifik.</p>
+        </div>
+    </section>
+
+    <!-- PUJIAN & PENYEMBAHAN SECTION -->
+    <section id="pujian" class="worship-section" style="padding: 0;">
+        <div class="worship-hero">
+            <h2>Pujian & Penyembahan</h2>
+            <p>Memahami Panggilan Imam untuk Mempersembahkan Persembahan Roh yang Harum, Bukan Sekadar Tampil di Mimbar</p>
+        </div>
+
+        <div style="padding: 6rem 5%; max-width: 1000px; margin: 0 auto;">
+            <h2 class="section-title" style="margin-top: 0;">Teologi Pujian</h2>
+            <p class="section-subtitle">Dari Tampilan ke Persembahan, dari Performer ke Imam</p>
+
+            <div class="content-block">
+                <h3><span>I.</span> Fondasi Teologis: Pujian sebagai Ibadah dan Pelayanan Imam</h3>
+                
+                <p>Pujian dan penyembahan dalam Alkitab bukan sekadar bagian liturgis sebelum firman, melainkan <strong>ibadah yang substantif dan pelayanan imam yang esensial</strong>. Untuk memahami ini, kita harus kembali pada pemahaman perjanjian tentang imam dan korban.</p>
+
+                <div class="priesthood-box">
+                    <h4>Imam-Imam yang Kudus (1 Petrus 2:5, 9)</h4>
+                    <p>Di Perjanjian Lama, imam-imam Lewi memiliki tugas khusus: mempersembahkan korban, membakar dupa di Bait Suci, dan memimpin umat dalam penyembahan. Di Perjanjian Baru, seluruh umat percaya menjadi <em>"imamat yang rajani"</em> (basileion hierateuma)—kerajaan imam-imam.</p>
+                    <p style="margin-top: 1rem;">Artinya: <strong>Setiap pelayan pujian—baik WL, penyanyi, pemain musik, soundman—bertugas sebagai imam.</strong> Mereka bukan "pembuka acara" sebelum "acara utama" (khotbah), melainkan mempersiapkan jalan bagi hadirat Tuhan.</p>
+                </div>
+
+                <h4>Dupa yang Harum: Persembahan Roh (Ibrani 13:15; Wahyu 5:8; 8:3-4)</h4>
+                <p>Di Bait Suci, ada mezbah dupa di ruang kudus, di depan tabut perjanjian. Dupa yang dibakar melambati doa-doa umat Allah naik ke hadirat-Nya. Dupa yang harum menyenangkan hati Tuhan; dupa yang bau (karena dicampur bahan yang salah) ditolak (Imamat 10:1-2).</p>
+                
+                <div class="highlight-box">
+                    "Demikian juga hendaknya kamu, sebagai batu hidup, dijadikan rumah rohani dan imamat yang kudus, untuk mempersembahkan persembahan roh yang karena Yesus Kristus berkenan kepada Allah." — 1 Petrus 2:5
+                </div>
+
+                <p><strong>Implikasi:</strong> Pujian kita adalah korban—bukan korban hewan, melainkan <em>persembahan roh</em>. Ini berarti:</p>
+                <ul>
+                    <li>Pujian datang dari hati yang sudah disucikan, bukan sekadar teknik vokal yang sempurna</li>
+                    <li>Pujian adalah persembahan yang harus "berkenan"—murni, tulus, sesuai dengan kehendak Tuhan</li>
+                    <li>Pujian memiliki kekuatan spiritual: membuka jalan bagi lawatan Tuhan (Mazmur 22:3)</li>
+                </ul>
+            </div>
+
+            <div class="content-block">
+                <h3><span>II.</span> Hadirat Tuhan: Tujuan Utama Pujian</h3>
+                
+                <p>Salah satu kesalahan fatal dalam pelayanan pujian kontemporer adalah menganggap pujian sebagai "warming up" atau pengisi waktu sebelum firman. Ini adalah reduksi yang tragis dari teologi pujian.</p>
+
+                <h4>Tuhan Bersemayam di Pujian Umat-Nya (Mazmur 22:3)</h4>
+                <p>Ayat ini secara literal berarti: "Engkau kudus, yang bertakhta di atas pujian Israel" (atau "yang tinggal di dalam pujian"). <strong>Tuhan tidak hanya menerima pujian; Dia hadir di dalamnya.</strong></p>
+
+                <p>Ini berarti:</p>
+                <ul>
+                    <li>Ketika umat dengan tulus memuji, Tuhan secara khusus hadir dan bersemayam di tengah-tengah mereka</li>
+                    <li>Hadirat Tuhan mendahului firman—Dia hadir terlebih dahulu, kemudian berbicara</li>
+                    <li>Pujian yang benar menciptakan atmosfer di mana hati terbuka untuk menerima firman</li>
+                </ul>
+
+                <div class="theology-box">
+                    <strong>Ilustrasi dari Tabernakel:</strong><br>
+                    Di padang gurun, Tuhan menyertai umat Israel dalam bentuk tiang awan dan tiang api. Ketika Musa memasuki Kemah Pertemuan untuk berbicara dengan Tuhan, seluruh umat berdiri di pintu kemah mereka dan menyembah (Keluaran 33:10). Penyembahan adalah respons terhadap hadirat yang nyata.
+                </div>
+
+                <h4>Lawatan Tuhan (Visitation)</h4>
+                <p>Ada perbedaan antara <em>omnipresence</em> (Tuhan ada di mana-mana secara teologis) dan <em>manifest presence</em> (Tuhan secara nyata menyatakan diri dengan kuasa dan kasih karunia). Pujian yang rohani memanggil lawatan Tuhan yang kedua ini—di mana umat merasakan, mengalami, dan diubahkan oleh kehadiran-Nya.</p>
+
+                <p><strong>Tugas tim pujian:</strong> Bukan "memanaskan" jemaat, melainkan <strong>menjadi medium</strong> yang memfasilitasi pertemuan antara umat dengan Allah yang hidup.</p>
+            </div>
+
+            <div class="content-block">
+                <h3><span>III.</span> Hati yang Menyembah: Karakter Internal Seorang Penyembah</h3>
+                
+                <p>Yesus berkata kepada Samariawan: "Tetapi saatnya akan datang dan sudah tiba sekarang, bahwa penyembah-penyembah yang benar akan menyembah Bapa dalam roh dan kebenaran" (Yohanes 4:23). Ini menunjukkan dua dimensi penyembahan yang benar:</p>
+
+                <div class="framework">
+                    <h4>1. Dalam Roh (Pneuma)</h4>
+                    <p>Penyembahan adalah aktivitas rohani, bukan sekadar fisik. Ini melibatkan:</p>
+                    <ul class="checklist">
+                        <li><strong>Kesadaran ketergantungan pada Roh Kudus:</strong> Kita tidak bisa membuat diri kita "merasakan" hadirat Tuhan; itu adalah anugerah. Tapi kita bisa memposisikan diri dengan kerendahan hati untuk menerima.</li>
+                        <li><strong>Kepekaan rohani:</strong> Membedakan antara emosi yang dibangkitkan musik versus pergerakan Roh yang autentik.</li>
+                        <li><strong>Doa yang tak putus:</strong> Sebelum, selama, dan setelah pelayanan, hidup dalam komunikasi dengan Allah.</li>
+                    </ul>
+                </div>
+
+                <div class="framework">
+                    <h4>2. Dalam Kebenaran (Aletheia)</h4>
+                    <p>Penyembahan harus selaras dengan kebenaran Firman. Ini berarti:</p>
+                    <ul class="checklist">
+                        <li><strong>Integritas hidup:</strong> Tidak ada kontradiksi antara apa yang dinyanyikan dan bagaimana hidup sehari-hari (Amos 5:21-24).</li>
+                        <li><strong>Teologi yang benar:</strong> Lirik pujian harus teologis akurat, bukan hanya emosional manis.</li>
+                        <li><strong>Ketulusan:</strong> Tidak "berakting" di panggung. Penyembahan adalah ekspresi hati, bukan performa.</li>
+                    </ul>
+                </div>
+
+                <h4>Karakter yang Harus Dimiliki:</h4>
+                <div class="cards-grid">
+                    <div class="card">
+                        <h4>1. Kerendahan Hati</h4>
+                        <p>Menyadari bahwa kita adalah alat, bukan bintang. Tuhan tidak membutuhkan suara kita; kita yang membutuhkan Dia. Kerendahan hati membuat kita tidak mencari pujian manusia, melainkan persetujuan ilahi.</p>
+                    </div>
+                    <div class="card">
+                        <h4>2. Kesucian Hidup</h4>
+                        <p>Imam yang masuk ke Bait Suci haruslah kudus. Dosa yang tidak ditangani membuat pujian menjadi bunyi yang nyaring (1 Korintus 13:1). Pentingnya kehidupan doa dan pertobatan rutin.</p>
+                    </div>
+                    <div class="card">
+                        <h4>3. Ketaatan</h4>
+                        <p>Bersedia dipakai sesuai kehendak Tuhan, bukan menurut selera pribadi. Kadang Tuhan meminta kesunyian, bukan suara merdu. Kadang Ia meminta lagu yang tidak populer.</p>
+                    </div>
+                    <div class="card">
+                        <h4>4. Keterbukaan</h4>
+                        <p>Hati yang terbuka untuk diubahkan oleh Firman yang akan dibawakan. Penyembah yang baik adalah yang pertama kali disentuh oleh kebenaran sebelum menyentuh orang lain.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-block">
+                <h3><span>IV.</span> Praktis untuk WL (Worship Leader), Singer, dan Musisi</h3>
+
+                <h4>A. Sebelum Pelayanan (Persiapan Rohani)</h4>
+                <ul>
+                    <li><strong>Doa Pribadi:</strong> Minimal 30 menit sebelum latihan/ibadah. Bukan doa "meminta lancar," melainkan doa penyembahan pribadi—memastikan hati sendiri sudah berada di hadirat Tuhan.</li>
+                    <li><strong>Meditasi Firman:</strong> Baca dan renungkan teks firman yang akan dibawakan pengkhotbah. Penyembah harus "mendahului" jemaat dalam menerima firman.</li>
+                    <li><strong>Pembersihan Hati:</strong> Periksa apakah ada amarah, iri hati, ketidakmaafan, atau dosa yang belum ditangani. "Bereskan akun" dengan sesama anggota tim jika ada konflik.</li>
+                    <li><strong>Puasa (jika memungkinkan):</strong> Beberapa gereja mengamankan puasa bersama tim pujian sebelum ibadah besar.</li>
+                </ul>
+
+                <h4>B. Selama Pelayanan (Sensitivitas Rohani)</h4>
+                <div class="warning-box">
+                    <strong>Jangan "Jalankan Program" Buta:</strong><br>
+                    Setlist adalah panduan, bukan aturan besi. WL harus peka terhadap pergerakan Roh. Jika Tuhan mengarahkan untuk mengulang bait, mengubah lagu, atau bahkan berdiam diri, taatilah.
+                </div>
+
+                <ul>
+                    <li><strong>Memimpin vs. Menampilkan:</strong> WL memimpin umat ke hadirat Tuhan, bukan menampilkan kemampuan vokal. WL harus "menghilang" sehingga yang terlihat hanya Tuhan.</li>
+                    <li><strong>Kontak Mata:</strong> Bukan untuk mencari validasi, melainkan untuk melihat apakah umat ikut menyembah atau hanya menonton.</li>
+                    <li><strong>Bahasa Tubuh:</strong> Ekspresi yang sesuai dengan lirik. Jika menyanyikan "Yesusku Kau Terindah," wajah harus mencerminkan kekaguman, bukan ekspresi datar.</li>
+                    <li><strong>Transisi:</strong> Antara lagu, gunakan bacaan firman, doa singkat, atau testimony untuk menjaga kontinuitas atmosfer rohani, bukan hanya jeda teknis.</li>
+                </ul>
+
+                <h4>C. Tim Musik: Lebih dari Akompanimen</h4>
+                <p>Pemain musik bukan "backing track" hidup. Mereka adalah imam-imam yang mempersembahkan persembahan roh melalui instrumen:</p>
+                <ul>
+                    <li><strong>Keselarasan:</strong> Musik harus mendukung lirik, bukan menutupi atau bertentangan. Jika lirik tentang kerendahan hati, musik tidak boleh arogan atau terlalu "showy."</li>
+                    <li><strong>Ruang untuk Roh:</strong> Jangan isi setiap detik dengan suara. Ada kekuatan dalam hening (selah) yang memungkinkan umat merenung dan Roh berbicara.</li>
+                    <li><strong>Kedisiplinan Teknis:</strong> Latihan yang matang adalah bentuk penghormatan kepada Tuhan. "Korbankan" yang terbaik, bukan yang cukup-cukupan.</li>
+                </ul>
+
+                <h4>D. Setelah Pelayanan (Evaluasi dan Pertumbuhan)</h4>
+                <ul>
+                    <li><strong>Debriefing:</strong> Diskusi singkat: Apa yang berjalan baik? Di mana kita merasakan hadirat Tuhan secara khusus? Apa yang perlu diperbaiki?</li>
+                    <li><strong>Ungkapan Syukur:</strong> Apresiasi satu sama lain. Hindari kritik yang menghancurkan; gunakan konstruksi yang membangun.</li>
+                    <li><strong>Istirahat Rohani:</strong> Jangan langsung "party" atau hiburan. Beri waktu bagi jiwa untuk "turun dari gunung" dengan tenang.</li>
+                </ul>
+            </div>
+
+            <div class="content-block">
+                <h3><span>V.</span> Membedakan Penyembahan dan Pertunjukan</h3>
+                
+                <table style="width: 100%; border-collapse: collapse; margin-top: 1rem;">
+                    <thead>
+                        <tr style="background: var(--primary); color: white;">
+                            <th style="padding: 1rem; text-align: left; border: 1px solid var(--border);">Dimensi</th>
+                            <th style="padding: 1rem; text-align: left; border: 1px solid var(--border);">Penyembahan (Ibadah)</th>
+                            <th style="padding: 1rem; text-align: left; border: 1px solid var(--border);">Pertunjukan (Entertainment)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="padding: 1rem; border: 1px solid var(--border);"><strong>Fokus</strong></td>
+                            <td style="padding: 1rem; border: 1px solid var(--border);">Tuhan (vertical)</td>
+                            <td style="padding: 1rem; border: 1px solid var(--border);">Audiens (horizontal)</td>
+                        </tr>
+                        <tr style="background: var(--secondary);">
+                            <td style="padding: 1rem; border: 1px solid var(--border);"><strong>Tujuan</strong></td>
+                            <td style="padding: 1rem; border: 1px solid var(--border);">Memuliakan Allah, menyentuh hati manusia sebagai hasil samping</td>
+                            <td style="padding: 1rem; border: 1px solid var(--border);">Menghibur/menghargai manusia</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 1rem; border: 1px solid var(--border);"><strong>Standar Keberhasilan</strong></td>
+                            <td style="padding: 1rem; border: 1px solid var(--border);">Tuhan dipermuliakan, umat diubahkan</td>
+                            <td style="padding: 1rem; border: 1px solid var(--border);">Tepuk tangan, penonton puas</td>
+                        </tr>
+                        <tr style="background: var(--secondary);">
+                            <td style="padding: 1rem; border: 1px solid var(--border);"><strong>Preparasi Utama</strong></td>
+                            <td style="padding: 1rem; border: 1px solid var(--border);">Doa, pemeriksaan hati, meditasi firman</td>
+                            <td style="padding: 1rem; border: 1px solid var(--border);">Latihan teknik, penampilan fisik</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 1rem; border: 1px solid var(--border);"><strong>Respons Diharapkan</strong></td>
+                            <td style="padding: 1rem; border: 1px solid var(--border);">Pertobatan, komitmen, penyembahan pribadi</td>
+                            <td style="padding: 1rem; border: 1px solid var(--border);">Tepuk tangan, teriakan, apresiasi estetis</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="highlight-box" style="margin-top: 2rem;">
+                    <strong>Catatan Penting:</strong> Kualitas musikal yang baik bukan berarti "pertunjukan." Kita harus memberikan yang terbaik untuk Tuhan (keunggulan). Masalahnya adalah <em>motivasi hati</em> dan <em>arah fokus</em>. Penyembahan bisa terjadi dengan musik sederhana namun hati yang tulus; pertunjukan bisa terjadi dengan musik canggih namun hati yang jauh dari Tuhan.
+                </div>
+            </div>
+
+            <div class="content-block">
+                <h3><span>VI.</span> Doa untuk Tim Pujian</h3>
+                
+                <div class="priesthood-box">
+                    <p style="font-style: italic; line-height: 2;">
+                        "Bapa Surgawi, kami datang sebagai imam-imam yang tidak layak, namun dipanggil oleh anugerah. Sucikan hati kami dari segala noda dosa dan motivasi yang salah. Jadikan pujian kami dupa yang harum di hadapan-Mu, bukan bunyi yang nyaring. <br><br>
+                        Ampuni kami ketika kami lebih memikirkan nada yang tepat daripada ketulusan hati. Ampuni kami ketika kami mencari pujian manusia lebih dari persetujuan-Mu. <br><br>
+                        Roh Kudus, pimpinlah setiap nada, setiap kata, setiap detik. Buatlah kami medium yang transparan sehingga jemaat tidak melihat kami, melainkan hanya Engkau saja. <br><br>
+                        Datanglah dan lawatlah umat-Mu sebelum firman-Mu dibacakan. Biarlah hadirat-Mu turun seperti pada Hari Pentakosta, mengubahkan hati sebelum pikiran diajar. <br><br>
+                        Di dalam nama Yesus, Imam Besar kami, kami berdoa. Amin."
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTOH KHOTBAH SECTION -->
+    <section id="contoh">
+        <h2 class="section-title">Contoh Kerangka Khotbah</h2>
+        <p class="section-subtitle">Dari Teks ke Pulpit: Aplikasi Praktis</p>
+
+        <div class="example-box">
+            <div class="example-header">
+                Contoh 1: Mazmur 23 — "Tuhan Gembala yang Baik"
+            </div>
+            
+            <div class="bible-verse">
+                "TUHAN adalah gembalaku, takkan kekurangan aku. Ia membaringkan aku di padang yang berumput hijau, Ia membimbing aku ke air yang tenang; Ia menyegarkan jiwaku." — Mazmur 23:1-3a
+            </div>
+
+            <div class="sermon-point">
+                <h5>Informasi Teks:</h5>
+                <p><strong>Penulis:</strong> Daud (raja yang pernah menjadi gembala). <strong>Konteks:</strong> Puisi kepercayaan dalam kesulitan. <strong>Genre:</strong> Puisi metafora. <strong>Tema:</strong> Perawatan Allah yang personal dan komprehensif.</p>
+            </div>
+
+            <h4 style="margin-top: 2rem; margin-bottom: 1rem; color: var(--primary);">I. PENDAHULUAN (5 menit)</h4>
+            <ul style="margin-left: 2rem; margin-bottom: 1.5rem;">
+                <li><strong>Hook:</strong> Cerita tentang gembala modern di Israel yang masih menggunakan tongkat dan pelana, menunjukkan gambaran ini masih relevan.</li>
+                <li><strong>Kebutuhan:</strong> Banyak orang Kristen merasa "kekurangan" meski punya segalanya—kekurangan damai, arah, atau tujuan. Kita hidup dalam budaya yang mengajarkan "kamu harus mengurus diri sendiri."</li>
+                <li><strong>Tema:</strong> Ketika kita mengenal Tuhan sebagai Gembala pribadi, kecukupan dan kedamaian menjadi milik kita bukan karena keadaan, melainkan karena relasi.</li>
+                <li><strong>Teks:</strong> Baca Mazmur 23:1-6 dengan perlahan dan khidmat.</li>
+            </ul>
+
+            <h4 style="margin-bottom: 1rem; color: var(--primary);">II. PROPOSISI (Kalimat Tesis)</h4>
+            <p style="margin-bottom: 1.5rem; font-style: italic; background: var(--secondary); padding: 1rem;">
+                "Ketika kita secara pribal mengenal Tuhan sebagai Gembala kita—bukan hanya sebagai konsep teologis—kita akan menemukan kecukupan rohani yang melampaui keadaan eksternal, karena Dia memelihara jiwa kita."
+            </p>
+
+            <h4 style="margin-bottom: 1rem; color: var(--primary);">III. PENGEMBANGAN (25 menit)</h4>
+            
+            <div style="margin-left: 1rem; margin-bottom: 1.5rem; padding: 1.5rem; background: #f9f9f9; border-left: 3px solid var(--accent);">
+                <h5 style="color: var(--accent); margin-bottom: 0.5rem; text-transform: uppercase;">Poin 1: Pemeliharaan yang Personal (Ayat 1)</h5>
+                <p style="margin-bottom: 0.5rem;"><strong>Penjelasan:</strong> "TUHAN adalah gembalaku"—bukan "gembala kita" secara kolektif saja, tetapi "gembalaKU." Penggunaan kata ganti orang pertama menunjukkan relasi personal. Nama "YHWH" (Tuhan) menunjukkan Allah yang berjanji, yang setia, yang berkarakter.</p>
+                <p style="margin-bottom: 0.5rem;"><strong>Ilustrasi:</strong> Bandingkan dengan gembala bayaran (Yohanes 10:12-13) yang lari ketika serigala datang. Tuhan tidak pernah meninggalkan domba-Nya.</p>
+                <p style="margin-bottom: 0.5rem;"><strong>Aplikasi:</strong> Apakah Anda benar-benar mengenal Tuhan sebagai "Gembala pribadi," atau hanya "Gembala umat"? Perbedaannya: yang pertama membuat Anda beristirahat, yang kedua membuat Anda cemas.</p>
+            </div>
+
+            <div style="margin-left: 1rem; margin-bottom: 1.5rem; padding: 1.5rem; background: #f9f9f9; border-left: 3px solid var(--accent);">
+                <h5 style="color: var(--accent); margin-bottom: 0.5rem; text-transform: uppercase;">Poin 2: Pemeliharaan yang Proaktif (Ayat 2-3a)</h5>
+                <p style="margin-bottom: 0.5rem;"><strong>Penjelasan:</strong> Tiga kata kerja: "membaringkan," "membimbing," "menyegarkan." Ini adalah tindakan inisiatif gembala. "Padang berumput hijau" dan "air tenang" adalah tempat terbaik bagi domba—domba tidak bisa mencarinya sendiri karena buta warna dan mudah panik.</p>
+                <p style="margin-bottom: 0.5rem;"><strong>Ilustrasi:</strong> Domba yang terlalu bodoh untuk minum dari air yang mengalir (takut bayangan), sehingga gembala harus mencarikan "air yang tenang" (still waters).</p>
+                <p style="margin-bottom: 0.5rem;"><strong>Aplikasi:</strong> Tuhan tahu apa yang kita butuhkan sebelum kita minta. Dia membimbing bukan ke jalan pintas, melainkan ke tempat yang menyegarkan. Apakah Anda mengikuti bimbingan-Nya meski tidak mengerti?</p>
+            </div>
+
+            <div style="margin-left: 1rem; margin-bottom: 1.5rem; padding: 1.5rem; background: #f9f9f9; border-left: 3px solid var(--accent);">
+                <h5 style="color: var(--accent); margin-bottom: 0.5rem; text-transform: uppercase;">Poin 3: Pemeliharaan yang Melampaui Keadaan (Ayat 4)</h5>
+                <p style="margin-bottom: 0.5rem;"><strong>Penjelasan:</strong> Perubahan tone: dari "padang hijau" ke "lembah kelam." Kehidupan rohani tidak selalu "high." Ada saat-saat kegelapan. Tapi perhatikan: "Engkau <em>besertaku</em>"—hadirat Tuhan tidak bergantung pada keadaan.</p>
+                <p style="margin-bottom: 0.5rem;"><strong>Ilustrasi:</strong> Tongkat dan gada gembala: tongkat untuk melindungi dari serigala, gada (memiliki bola besi) untuk menarik domba yang terperosok kembali ke jalan.</p>
+                <p style="margin-bottom: 0.5rem;"><strong>Aplikasi:</strong> Kita tidak dijanjikan jalan tanpa lembah, tetapi dijanjikan Teman di dalam lembah. Apakah Anda merasa sendiri, atau menyadari Dia beserta?</p>
+            </div>
+
+            <h4 style="margin-bottom: 1rem; color: var(--primary);">IV. KONKLUSI (5 menit)</h4>
+            <ul style="margin-left: 2rem; margin-bottom: 1rem;">
+                <li><strong>Ringkasan:</strong> Tuhan adalah Gembala yang personal, proaktif, dan setia dalam setiap musim.</li>
+                <li><strong>Tantangan:</strong> Jadikan Mazmur 23 doa pribadi Anda. Ganti "aku" dengan nama Anda. "TUHAN adalah gembala [Nama], takkan kekurangan [Nama]."</li>
+                <li><strong>Visualisasi:</strong> Bayangkan hidup satu minggu ini dengan keyakinan penuh bahwa Gembala Anda sedang memimpin.</li>
+                <li><strong>Doa:</strong> Ajak jemaat untuk secara personal menerima Tuhan sebagai Gembala, bukan hanya mendengar tentang Dia.</li>
+            </ul>
+        </div>
+
+        <div class="example-box" style="margin-top: 3rem;">
+            <div class="example-header">
+                Contoh 2: Efesus 2:8-10 — "Kasih Karunia dalam Tindakan"
+            </div>
+            
+            <div class="bible-verse">
+                "Karena kasih karunia kamu diselamatkan oleh iman... bukan dari pekerjaanmu sendiri... karena kita ini buatan Allah, diciptakan dalam Kristus Yesus untuk melakukan pekerjaan baik." — Efesus 2:8-10
+            </div>
+
+            <h4 style="margin-top: 2rem; margin-bottom: 1rem; color: var(--primary);">Struktur Khotbah: Problem-Solution-Application</h4>
+            
+            <div class="sermon-point">
+                <h5>I. Problem: Dua Kesalahan Ekstrem (5 menit)</h5>
+                <p><strong>Legalisme:</strong> Berpikir kita diselamatkan/menjadi Kristen yang "baik" karena performa (ibadah, persepuluhan, pelayanan). Ini membuat kita capek, takut, dan judgmental.</p>
+                                <p><strong>Laissez-faire:</strong> Berpikir "karena kasih karunia, bebas berbuat dosa." Ini membuat hidup Kristen tidak berbeda dengan dunia.</p>
+                <p><strong>Hook:</strong> Kisah dua saudara: yang satu stres karena tidak pernah cukup baik, yang satu hidup sembarangan karena "sudah diampuni."</p>
+            </div>
+
+            <div class="sermon-point">
+                <h5>II. Solution: Kasih Karunia yang Membenarkan dan Menguduskan (20 menit)</h5>
+                
+                <p style="margin-top: 1rem;"><strong>A. Diselamatkan oleh Kasih Karunia (Ayat 8)</strong></p>
+                <p>"Kasih karunia" (charis) = anugerah yang tidak layak diterima. "Iman" = respons manusia yang juga merupakan karunia (Efesus 2:8—"itu bukan dari dirimu, itu adalah karunia Allah").</p>
+                <p><em>Ilustrasi:</em> Seperti menerima hadiah ulang tahun—Anda tidak bisa "membayar" hadiah itu dengan berterima kasih berlebihan. Terima kasih adalah respons wajar, bukan pembayaran.</p>
+                
+                <p style="margin-top: 1rem;"><strong>B. Bukan dari Pekerjaan—Sehingga Tidak Ada yang Memegahkan Diri (Ayat 9)</strong></p>
+                <p>Tujuan kasih karunia: menghancurkan kesombongan. Jika kita bisa diselamatkan dengan usaha, kita akan merasa superior terhadap yang "kurang berusaha."</p>
+                <p><em>Aplikasi:</em> Apakah Anda merasa "lebih Kristen" dari orang lain karena pelayanan Anda? Itu tanda Anda belum mengerti kasih karunia.</p>
+                
+                <p style="margin-top: 1rem;"><strong>C. Diciptakan untuk Pekerjaan Baik (Ayat 10)</strong></p>
+                <p>Paradoks: Kita diselamatkan BUKAN oleh pekerjaan baik, tetapi UNTUK pekerjaan baik. Kasih karunia bukan lisensi untuk malas, melainkan bahan bakar untuk pelayanan.</p>
+                <p><em>Ilustrasi:</em> Seperti pohon buah-buahan: pohon tidak ditanam KARENA buahnya, tetapi untuk BERBUAH. Buah membuktikan pohon hidup, tapi tidak membuat pohon menjadi pohon.</p>
+            </div>
+
+            <div class="sermon-point">
+                <h5>III. Application: Hidup dalam Kasih Karunia (10 menit)</h5>
+                <ul>
+                    <li><strong>Bagi yang Lelah:</strong> Berhenti mencoba "membayar" keselamatan Anda dengan performa. Istirahat dalam anugerah.</li>
+                    <li><strong>Bagi yang Acuh:</strong> Kasih karunia bukan alasan untuk berdosa, melainkan alasan untuk hidup kudus. "Harusnya" Anda berbuat baik karena sudah diterima, bukan untuk diterima.</li>
+                    <li><strong>Tantangan Praktis:</strong> Identifikasi satu area di mana Anda masih hidup dalam legalisme (menilai diri/others by performance) atau licentiousness (hidup sembarangan). Bawa ke mezbah pengakuan.</li>
+                </ul>
+            </div>
+
+            <h4 style="margin-top: 2rem; margin-bottom: 1rem; color: var(--primary);">Proposisi:</h4>
+            <p style="font-style: italic; background: var(--secondary); padding: 1rem;">
+                "Kasih karunia Allah tidak hanya memaafkan masa lalu Anda, tetapi juga memberi kekuatan untuk masa kini dan tujuan untuk masa depan—sehingga Anda bekerja bukan untuk mendapatkan restu, melainkan karena sudah diberkati."
+            </p>
+        </div>
+
+        <div class="example-box" style="margin-top: 3rem;">
+            <div class="example-header">
+                Checklist Evaluasi Khotbah
+            </div>
+            <div style="padding: 1rem 0;">
+                <h4 style="margin-bottom: 1rem;">Sebelum Berkhutbah:</h4>
+                <ul class="checklist">
+                    <li>Apakah saya sudah berdoa lebih lama daripada menulis naskah?</li>
+                    <li>Apakah saya sudah hidup dalam kebenaran yang akan saya sampaikan?</li>
+                    <li>Apakah teks sudah saya pelajari dalam konteksnya, bukan hanya ayat tunggal?</li>
+                    <li>Apakah ada satu kalimat tesis yang jelas (proposisi)?</li>
+                    <li>Apakah aplikasi spesifik dan dapat dilakukan?</li>
+                </ul>
+
+                <h4 style="margin: 2rem 0 1rem;">Saat Berkhotbah:</h4>
+                <ul class="checklist">
+                    <li>Apakah mata saya melihat wajah-wajai, bukan hanya catatan?</li>
+                    <li>Apakah suara saya variatif (tidak monoton)?</li>
+                    <li>Apakah saya memberi jeda untuk bernapas dan merenung?</li>
+                    <li>Apakah saya mengarahkan kepada Kristus, bukan kepada diri sendiri?</li>
+                </ul>
+
+                <h4 style="margin: 2rem 0 1rem;">Setelah Berkhotbah:</h4>
+                <ul class="checklist">
+                    <li>Apakah saya evaluasi dengan jujur (apa yang berhasil, apa yang tidak)?</li>
+                    <li>Apakah saya mencatat perbaikan untuk khotbah berikutnya?</li>
+                    <li>Apakah saya berdoa untuk buah yang bertahan lama, bukan hanya respons spontan?</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>Teologia Gratis — Untuk kemuliaan Tuhan dan edifikasi jemaat-Nya</p>
+        <p class="copyright">© 2024 Ps. Yanto Goutama. Hak cipta dilindungi.<br>
+        Materi dapat digunakan untuk pelayanan non-komersial dengan mencantumkan sumber.<br>
+        "Hendaklah kamu menjadi penatalayan yang setia" — 1 Korintus 4:2</p>
+    </footer>
+
+</body>
+</html>
